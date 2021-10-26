@@ -1,0 +1,16 @@
+---
+namespace: community
+name: webapp-role
+version: 1.0.0
+readme: README.md
+authors:
+  - Martineau Brice
+description: Installe webapp
+license_file: COPYING
+tags:
+  - v1
+repository: 
+documentation: 
+build_ignore:
+  - .gitignore
+ 

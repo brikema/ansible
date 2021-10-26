@@ -1,0 +1,29 @@
+- name: set variable instance_1
+  set_fact:
+    name: "{{ instance_1.name }}"
+ 
+    
+- name: "Create directory {{ instance_1.name }}"
+  file:
+    path: /home/{{ user }}/{{ instance_1.name }}
+    state: directory
+    
+- name: "Download data from git repo"
+  git:
+    repo: 'https://github.com/diranetafen/static-website-example.git'
+    dest: /home/{{ user }}/{{ instance_1.name }}
+
+- name: "Copy new template"
+  template: 		
+    src: index.html.j2
+    dest: /home/{{ user }}/{{ instance_1.name }}/index.html
+
+- name: "launch docker container"
+  docker_container:
+    name: "{{ instance_1.name }}"
+    image: httpd
+    ports: 
+      - "{{ instance_1.port }}:80"
+    volumes:
+      - /home/{{ user }}/{{ instance_1.name }}/:/usr/local/apache2/htdocs/:rw
+ 

@@ -1,0 +1,6 @@
+---
+galaxy_info:
+  role_name: webapp_role
+  author: Martineau Brice
+  description: role webapp ansible
+  company: brikema

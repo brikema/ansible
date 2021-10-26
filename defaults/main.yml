@@ -1,0 +1,8 @@
+---
+administrator: Martineau
+user: admin
+
+instance_1:
+  name: app
+  port: 8000
+  titre: "webapp"
